@@ -20,6 +20,7 @@ Vitamio简介：Vitamio是一个支持所有Android设备的多媒体框架。Vi
   - 通过Complie的方式引入
   作者是采用的第一种方式，下面是一些需要注意的地方：
   - 清单文件配置：
+  
   1）权限设置：
 ```
 <uses-permission android:name="android.permission.WAKE_LOCK" />
