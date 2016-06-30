@@ -27,7 +27,6 @@ import io.vov.vitamio.widget.VideoView;
  */
 public class CustomMediaController extends MediaController {
     private static final int HIDEFRAM = 0;//控制提示窗口的显示
-    private static final int SHOW_PROGRESS = 2;
 
     private GestureDetector mGestureDetector;
     private ImageButton img_back;//返回按钮

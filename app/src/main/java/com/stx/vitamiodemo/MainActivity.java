@@ -21,8 +21,7 @@ import io.vov.vitamio.widget.VideoView;
  */
 public class MainActivity extends AppCompatActivity implements MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener{
     //视频地址
-//    private String path = "http://baobab.wdjcdn.com/145076769089714.mp4";
-    private String path = "http://xiaoyuyu.oss-cn-shenzhen.aliyuncs.com/iapp/%E5%B9%BF%E5%91%8A.avi";
+    private String path = "http://baobab.wdjcdn.com/145076769089714.mp4";
     private Uri uri;
     private ProgressBar pb;
     private TextView downloadRateView, loadRateView;
