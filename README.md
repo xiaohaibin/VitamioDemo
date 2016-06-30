@@ -28,7 +28,7 @@ Vitamio简介：Vitamio是一个支持所有Android设备的多媒体框架。Vi
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```  
-2）application配置：
+  2）application配置：
 ```
 <!-- 必须初始化 -->
 <activity    
