@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.MediaController;
@@ -38,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnInf
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
         //必须写这个，初始化加载库文件
-        Vitamio.initialize(this);
+        Vitamio.isInitialized(this);
         //设置视频解码监听
-        if (!LibsChecker.checkVitamioLibs(this)) {
-            return;
-        }
+//        if (!LibsChecker.checkVitamioLibs(this)) {
+//            return;
+//        }
         setContentView(R.layout.activity_main);
         initView();
         initData();
