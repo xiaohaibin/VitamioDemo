@@ -2,6 +2,8 @@ package com.stx.vitamiodemo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
@@ -62,6 +64,24 @@ public class CustomMediaController extends MediaController {
         }
     };
 
+
+    private View.OnClickListener scaleListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (activity != null) {
+                switch (activity.getResources().getConfiguration().orientation) {
+                    case Configuration.ORIENTATION_LANDSCAPE://横屏
+                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                        break;
+                    case Configuration.ORIENTATION_PORTRAIT://竖屏
+                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                        break;
+                }
+
+            }
+        }
+    };
+
     private Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -74,6 +94,7 @@ public class CustomMediaController extends MediaController {
             }
         }
     };
+    private ImageView mIvScale;
 
 
     //videoview 用于对视频进行控制的等，activity为了退出
@@ -96,6 +117,8 @@ public class CustomMediaController extends MediaController {
         //获取控件
         img_back = (ImageButton) v.findViewById(getResources().getIdentifier("mediacontroller_top_back", "id", context.getPackageName()));
         mFileName = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_filename", "id", context.getPackageName()));
+        //缩放控件
+        mIvScale = (ImageView) v.findViewById(getResources().getIdentifier("mediacontroller_scale", "id", context.getPackageName()));
 
         if (mFileName != null) {
             mFileName.setText(videoname);
@@ -111,6 +134,7 @@ public class CustomMediaController extends MediaController {
 
         //注册事件监听
         img_back.setOnClickListener(backListener);
+        mIvScale.setOnClickListener(scaleListener);
         return v;
     }
 

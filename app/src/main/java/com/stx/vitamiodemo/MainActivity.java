@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
-import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
 /**
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnInf
     private Uri uri;
     private ProgressBar pb;
     private TextView downloadRateView, loadRateView;
-    private MediaController mMediaController;
     private CustomMediaController mCustomMediaController;
     private VideoView mVideoView;
     @Override
@@ -50,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnInf
     //初始化控件
     private void initView() {
         mVideoView = (VideoView) findViewById(R.id.buffer);
-        mMediaController= new MediaController(this);
         mCustomMediaController=new CustomMediaController(this,mVideoView,this);
         mCustomMediaController.setVideoName("白火锅 x 红火锅");
         pb = (ProgressBar) findViewById(R.id.probar);
@@ -62,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnInf
     private void initData() {
         uri = Uri.parse(path);
         mVideoView.setVideoURI(uri);//设置视频播放地址
+        mCustomMediaController.show(5000);
         mVideoView.setMediaController(mCustomMediaController);
         mVideoView.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);//高画质
-        mMediaController.show(5000);
         mVideoView.requestFocus();
         mVideoView.setOnInfoListener(this);
         mVideoView.setOnBufferingUpdateListener(this);
